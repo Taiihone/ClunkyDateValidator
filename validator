@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+ class Start {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int day = sc.nextInt();
+        int month = sc.nextInt();
+        int year = sc.nextInt();
+        int max31 = ((month == 1) || (month == 3) || (month == 5) || (month == 7) || (month == 8) || (month == 10) || month == 12) ? 1 : 0;
+        int max30 = ((month == 4) || (month == 6) || (month == 9) || (month == 11)) ? 2 : 0;
+        int max28 = ((month == 2) && (year % 4 != 0)) && (year % 400 != 0)? 4 : 0;
+        int max29 = ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) ? 3 : 0;
+        int maxY = 2022;
+        int maxM = 12;
+        int maxD = 32 - max31 - max30 - max29 - max28;
+        boolean Mlen = (month <= maxM && month>0 && month <13);
+        boolean Ylen = year <= maxY && year>0 && year<2023;
+        boolean Dlen = (day <= maxD && day>0 && day<32);
+
+
+        System.out.println( (Mlen) && (Ylen) && (Dlen) ? "true" : "false" );
+    }}
+
